@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<head>
+    <meta charset="UTF-8">
+    <title>Taco Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+    <form method="POST" th:action="@{/orders}" th:object="${order}">
+        <h1>디자인된 타코를 주문하세요!</h1>
+        <img th:src="@{/images/TacoCloud.png}" />
+        <a th:href="@{/design}" id="another">또 다른 타코 디자인</a>
+        <br />
+
+        <div th:if="${#fields.hasErrors()}">
+            <span class="validationError">아래 틀린 부분을 수정해 주세요.</span>
+        </div>
+
+        <h3>나의 역작 타코를 배송할 곳...</h3>
+        <label for="deliveryName">이름: </label>
+        <input type="text" th:field="*{deliveryName}" />
+        <br />
+        <label for="deliveryStreet">상세 주소: </label>
+        <input type="text" th:field="*{deliveryStreet}" />
+        <br />
+        <label for="deliveryCity">시군구: </label>
+        <input type="text" th:field="*{deliveryCity}" />
+        <br />
+        <label for="deliveryState">시도: </label>
+        <input type="text" th:field="*{deliveryState}" />
+        <br />
+        <label for="deliveryZip">우편번호: </label>
+        <input type="text" th:field="*{deliveryZip}" />
+        <br />
+
+        <h3>결재 방법은...</h3>
+        <label for="ccNumber">신용카드 #: </label>
+        <input type="text" th:field="*{ccNumber}" />
+        <br />
+        <label for="ccExpiration">만료 연월: </label>
+        <input type="text" th:field="*{ccExpiration}" />
+        <br />
+        <label for="ccCVV">CVV: </label>
+        <input type="text" th:field="*{ccCVV}" />
+        <br />
+
+        <input type="submit" value="주문" />
+    </form>
+</body>
+</html>
