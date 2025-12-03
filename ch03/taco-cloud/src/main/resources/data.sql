@@ -1,0 +1,15 @@
+DELETE FROM Taco_Order_Tacos;
+DELETE FROM Taco_Ingredients;
+DELETE FROM Taco;
+DELETE FROM Taco_Order;
+DELETE FROM Ingredient;
+INSERT INTO Ingredient (id, name, type) VALUES('FLTO', '흰 밀가루 또띠아', 'WRAP');
+INSERT INTO Ingredient (id, name, type) VALUES('COTO', '옥수수 또띠아', 'WRAP');
+INSERT INTO Ingredient (id, name, type) VALUES('GRBF', '갈은 소고기', 'PROTEIN');
+INSERT INTO Ingredient (id, name, type) VALUES('CARN', '돼지고기 속', 'PROTEIN');
+INSERT INTO Ingredient (id, name, type) VALUES('TMTO', '다진 토마토', 'VEGGIES');
+INSERT INTO Ingredient (id, name, type) VALUES('LETC', '양상추', 'VEGGIES');
+INSERT INTO Ingredient (id, name, type) VALUES('CHED', '체다 치즈', 'CHEESE');
+INSERT INTO Ingredient (id, name, type) VALUES('JACK', '몬테레이 잭 치즈', 'CHEESE');
+INSERT INTO Ingredient (id, name, type) VALUES('SLSA', '살사 소스', 'SAUCE');
+INSERT INTO Ingredient (id, name, type) VALUES('SRCR', '사워 크림', 'SAUCE');
