@@ -4,6 +4,7 @@ div.ingredient-group:nth-child(odd) {
     padding-right: 20px;
 }
 
+
 div.ingredient-group:nth-child(even) {
     float: left;
     padding-right: 0;
