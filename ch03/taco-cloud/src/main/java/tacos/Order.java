@@ -4,6 +4,10 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 @Data
@@ -24,4 +28,8 @@ public class Order {
     private String ccExpiration;
     @Digits(integer = 3, fraction = 0, message = "CCV 숫자가 이상합니다.")
     private String ccCVV;
+    private List<Taco> tacos = new ArrayList<>();
+    public void addDesign(Taco design) {
+        this.tacos.add(design);
+    }
 }
