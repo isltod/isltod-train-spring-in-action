@@ -6,12 +6,15 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 @Data
 public class Order {
+    private long id;
+    private Date placedAt;
     @NotBlank(message = "이름이 없습니다.")
     private String deliveryName;
     @NotBlank(message = "상세 주소가 없습니다.")

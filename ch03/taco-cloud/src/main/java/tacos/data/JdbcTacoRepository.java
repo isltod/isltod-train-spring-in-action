@@ -5,6 +5,7 @@ import java.sql.Types;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -38,6 +39,7 @@ public class JdbcTacoRepository implements TacoRepository {
         taco.setCreatedAt(new Date());
         String sql = "INSERT INTO taco (name, createdAt) VALUES (?, ?)";
         PreparedStatementCreatorFactory factory = new PreparedStatementCreatorFactory(sql, Types.VARCHAR, Types.TIMESTAMP);
+        factory.setReturnGeneratedKeys(true);
         Timestamp createdAt = new Timestamp(taco.getCreatedAt().getTime());
         String name = taco.getName();
         // 여기 Arrays.asList의 반환 타입이 뭔지 모르겠다...
@@ -50,7 +52,7 @@ public class JdbcTacoRepository implements TacoRepository {
 
     private void saveIngredientToTaco(Ingredient ingredient, long tacoId) {
         jdbc.update(
-            "INSERT INTO Taco_Ingredient (taco, ingredient) VALUES (?, ?)",
+            "INSERT INTO Taco_Ingredients (taco, ingredient) VALUES (?, ?)",
             tacoId, ingredient.getId()
         );
     }
