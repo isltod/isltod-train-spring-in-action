@@ -12,6 +12,12 @@
         <a th:href="@{/design}" id="another">또 다른 타코 디자인</a>
         <br />
 
+        <ul>
+            <li th:each="taco : ${order.tacos}">
+                  <span th:text="${taco.name}">taco name</span>
+            </li>
+        </ul>
+
         <div th:if="${#fields.hasErrors()}">
             <span class="validationError">아래 틀린 부분을 수정해 주세요.</span>
         </div>
